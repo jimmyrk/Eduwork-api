@@ -1,6 +1,10 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  // env: {
+  //   email: 'userEmail',
+  //   password: 'userPassword',
+  // },
 
   e2e: {
     setupNodeEvents(on, config) {

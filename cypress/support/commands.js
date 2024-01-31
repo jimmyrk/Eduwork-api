@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// Cypress.Commands.add('loginViaAPI', (
+//     email = Cypress.env('userEmail'),
+//     password = Cypress.env('userPassword')
+// ) => {
+//     cy.request('POST', `${Cypress.env('apiUrl')}/users/login`, {
+//         username: email,
+//         password,
+//     }).then((response) => {
+//         // Pastikan status code adalah 200 OK
+//         expect(response.status).to.eq(200);
+
+//         // Set cookie hanya jika respons valid
+//         cy.setCookie('sessionId', response.body.sessionId);
+//         cy.setCookie('userId', response.body.userId);
+//         cy.setCookie('userName', response.body.userName);
+
+//         // Menunggu hingga respons selesai sebelum melakukan tindakan selanjutnya
+//         cy.wait(1000); // Sesuaikan dengan kebutuhan Anda atau gunakan should
+//         cy.visit('/#!/main');
+//     });
+// });
