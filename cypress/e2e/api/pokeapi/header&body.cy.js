@@ -12,4 +12,13 @@ describe('Validate Header and Response Body', () => {
             .should('have.property', 'name', 'ditto'); // Memastikan bahwa nama Pokemon adalah "ditto"
         // Anda bisa menambahkan assertion lainnya sesuai dengan properti yang ingin Anda periksa pada response body
     });
+
+    it('Successfully validate negative response', () => {
+        cy.request({
+            method: 'GET',
+            url: 'https://pokeapi.co/api/v2/pokemon/eduwork/',
+            failOnStatusCode: false
+        }).as('eduwork')
+        cy.get('@eduwork').its('status').should('equal', 404)
+    });
 });
